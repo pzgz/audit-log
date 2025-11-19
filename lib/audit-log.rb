@@ -46,9 +46,9 @@ module AuditLog
           AuditLog::Log.create!(
             action: action,
             record: record,
-            payload: (payload || {}).to_h.deep_stringify_keys,
+            payload: payload || {},
             user: user,
-            request: request_info.deep_stringify_keys
+            request: request_info
           )
         end
       end
